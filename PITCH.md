@@ -8,7 +8,7 @@ measured in this repo; the source is in the cheat sheet.
 
 ## 1. The one line
 
-> **Your agents read 4,000 tokens to find one email. Inbox Atlas hands them the 250 that matter, or tells them nothing is there.**
+> **Your agents read 3,700 tokens to answer one email question. Inbox Atlas hands them the 225 that matter, or tells them nothing is there.**
 
 Alternate hooks (pick one, open with it, never explain it first):
 
@@ -31,7 +31,7 @@ the topic is missing. People can use it too: search it, talk to it, or text it o
 
 ## 3. The 2 minute version (judging table)
 
-**Hook (10 s).** Your agents read 4,000 tokens to find one email. We hand them the 250 that
+**Hook (10 s).** Your agents read 3,700 tokens to answer one email question. We hand them the 225 that
 matter, or tell them nothing is there.
 
 **Problem (25 s).** Everyone has an inbox and a pile of notes they can't search. Gmail matches
@@ -72,7 +72,7 @@ Run the windows from DEMO.md. Say the **bold lines**; the rest is what is on scr
 
 | Time | Slide (web/deck, 9 slides) | Say |
 |---|---|---|
-| 0:00 | 1. Title | **"Your agents read 4,000 tokens to find one email. We hand them the 250 that matter."** |
+| 0:00 | 1. Title | **"Your agents read 3,700 tokens to answer one email question. We hand them the 225 that matter."** |
 | 0:15 | 2. The problem: the expensive loop | **"LLM agents searching your Gmail make too many queries, because they match words."** Search, zero hits, rewrite, search again, open email after email; every round costs tokens. **"The words the model writes are often not in the email: it searches coding competition, the email says Codeforces Round 1043. Keyword search found nothing for 7 of our 12 questions."** |
 | 0:45 | 3. So we built Inbox Atlas (real screenshots) | **"So we built Inbox Atlas: a retrieval layer that searches by meaning and returns a decision, for agents and for people."** Point at the facet chips and RELATED: YES, then the yacht maintenance NO card: 28 tokens, the agent stops. |
 | 1:05 | 4. The whole pipeline | **"End to end:"** Gmail and Obsidian in, cleaned, embedded by our own encoder, stored in Tiger Cloud. A question from an agent, iMessage, voice or the web; **"Grok writes the facets, including what to exclude"**; region score with a calibrated yes or no; only the answering sentences back, or "nothing here, stop". |

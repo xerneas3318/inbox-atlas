@@ -5,7 +5,7 @@ repo (eval/token_results.md, eval/results.md, TRAINING.md).
 
 ## Tagline
 
-Your agents read 4,000 tokens to find one email. Inbox Atlas hands them the 250 that matter, or tells them nothing is there.
+Your agents read 3,700 tokens to answer one email question. Inbox Atlas hands them the 225 that matter, or tells them nothing is there.
 
 ## Inspiration
 
