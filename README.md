@@ -63,6 +63,8 @@ LLM agents (Claude Code, Hermes, OpenClaw, an Obsidian second brain) either past
 |---|---:|---:|
 | meaning-based queries with **zero** relevant hits | 7 of 12 | 0 of 12 |
 | Recall@10 on those 12 queries | 0.175 | **0.867** |
+| **email questions:** tokens per question | 3,724 | **225** (17x fewer) |
+| **email questions:** answer accuracy | 33% | **58%** |
 | context tokens per question (top 10 docs vs 800 budget pack) | 4,445 | **249** (18x fewer) |
 | tokens spent when the topic is absent | 1,858 | **31** |
 | real 419 note vault: tokens handed to the agent per question | 10,907 | **625** (17x fewer) |
