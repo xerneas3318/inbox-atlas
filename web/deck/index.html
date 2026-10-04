@@ -585,6 +585,20 @@ body.presenter { background: #14171b; color: #eef0f2; overflow: hidden; }
   </aside>
 </section>
 
+<!-- 6b: architecture, full size -->
+<section class="slide arch-full">
+  <h2 style="font-size:60px;margin:-40px 0 10px"><span class="rule"></span>Inside the model.</h2>
+  <div style="display:flex;justify-content:center;align-items:flex-start;height:812px">
+    <img src="img/architecture.png" alt="Full architecture: stage A atlas-embed, frozen bge-base with LoRA on every attention layer, CLS pooling, Matryoshka 768/256/64, InfoNCE and KL distillation from a frozen bge-reranker teacher; stage B atlas-region, Grok facet set through the frozen encoder, two ISAB layers and PMA with 4 seeds, giving 4 anchors, temperatures and a bias, scored as a calibrated membership probability" style="max-height:100%;max-width:100%;display:block;background:#fff;border:2px solid var(--line);border-radius:12px;padding:16px">
+  </div>
+  <div class="foot"><span class="mark"></span><span class="num"></span></div>
+  <aside class="notes">
+    <p><b>"Left: the encoder. The bge-base backbone is frozen; we only train small LoRA adapters on each attention layer, 1.18 million parameters, and it learns from a frozen cross-encoder teacher."</b></p>
+    <p><b>"Right: the region. Grok's facet list goes through the frozen encoder into a Set Transformer that outputs four anchors and a boundary, calibrated into a probability: is this email inside the question or not."</b></p>
+    <p>Gray hatched means frozen, red means trained. Matryoshka heads let the same embedding work at 768, 256 or 64 dims.</p>
+  </aside>
+</section>
+
 <!-- 7 -->
 <section class="slide">
   <h2><span class="rule"></span>Keyword search vs Inbox Atlas.</h2>
