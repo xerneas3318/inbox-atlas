@@ -70,20 +70,17 @@ LLMs can both use, at a fraction of the tokens.
 
 Run the windows from DEMO.md. Say the **bold lines**; the rest is what is on screen.
 
-| Time | Screen | Say |
+| Time | Slide (web/deck, 9 slides) | Say |
 |---|---|---|
-| 0:00 | Title slide or README hero | **"Your agents read 4,000 tokens to find one email. We hand them the 250 that matter."** |
-| 0:15 | Browser, Keyword mode, `coding competition` | **"This is how Gmail and most agents search today: by words."** The job assessment comes first; no contests. |
-| 0:35 | Switch to Region mode | **"Same question, searched by meaning."** Codeforces, LeetCode, ICPC, DevPost, Kaggle, BigRed. Point at the facet chips: **"Grok wrote these, including what to exclude. That's why the job test is gone."** |
-| 1:00 | RELATED: YES badge, then type `yacht maintenance` | **"And it knows when nothing is there."** NO. **"That one answer is where most of the token savings come from."** |
-| 1:15 | Map | **"Your inbox as a map. The question becomes a region."** |
-| 1:30 | Terminal A, mock iMessage: `what do I have tomorrow?` | **"For people, it's just a text."** Monday 10am lab meeting. Then `did anyone ask me for money?` |
-| 2:00 | Terminal B, Cursor: arm servo question | **"For agents, it's one MCP tool."** Folder, note and the exact line, about 210 tokens. **"It found the folder first, then the note, in a nested markdown vault. That's how it generalizes to any second brain."** |
-| 2:30 | Same terminal: `did I book a yacht charter?` | About 23 tokens, stop. **"No grep loop. It just stops."** |
-| 2:45 | token_savings.png | **"Seven of twelve questions: keyword found nothing. We found all twelve. 18x fewer tokens than grep, 60x fewer when the topic isn't there."** |
-| 3:15 | more_than_rag.png | **"And it's more than RAG: RAG always returns k chunks. We return a decision, sentences instead of chunks, and folders before notes."** |
-| 3:40 | architecture.png | **"Under it: our own encoder, frozen backbone, LoRA, a frozen teacher, trained overnight on a quarter million emails on one GPU."** |
-| 3:50 | Close | **"Navigation for the next hundred years means navigating what we and our agents know."** |
+| 0:00 | 1. Title | **"Your agents read 4,000 tokens to find one email. We hand them the 250 that matter."** |
+| 0:15 | 2. The problem: the expensive loop | **"LLM agents searching your Gmail make too many queries, because they match words."** Search, zero hits, rewrite, search again, open email after email; every round costs tokens. **"The words the model writes are often not in the email: it searches coding competition, the email says Codeforces Round 1043. Keyword search found nothing for 7 of our 12 questions."** |
+| 0:45 | 3. So we built Inbox Atlas (real screenshots) | **"So we built Inbox Atlas: a retrieval layer that searches by meaning and returns a decision, for agents and for people."** Point at the facet chips and RELATED: YES, then the yacht maintenance NO card: 28 tokens, the agent stops. |
+| 1:05 | 4. The whole pipeline | **"End to end:"** Gmail and Obsidian in, cleaned, embedded by our own encoder, stored in Tiger Cloud. A question from an agent, iMessage, voice or the web; **"Grok writes the facets, including what to exclude"**; region score with a calibrated yes or no; only the answering sentences back, or "nothing here, stop". |
+| 1:30 | 5. The result | **"17 times fewer tokens on email questions, and more accurate."** 3,724 vs 225 tokens per question, 33% vs 58% answer accuracy, Recall@10 0.175 vs 0.867. **"The words a model would search for often aren't in the email. Word matching misses them; meaning doesn't."** |
+| 2:00 | 6. How we built it | **"Under it: our own encoder, frozen backbone, LoRA, a frozen teacher, trained overnight on a quarter million emails on one GPU."** 0.692 vs 0.635 on vague queries. Grok, Tiger Cloud, Photon, MCP; Cursor CLI sentence exactly as on the slide. |
+| 2:20 | 7. Keyword search vs Inbox Atlas | Read two rows, not all six: **"0 of 12 empty, 31 tokens when it isn't there. RAG always returns k chunks. We return a decision."** |
+| 2:35 | 8. A building block for every second brain, then live demo | **"Same tool over Obsidian vaults and agent memory, one MCP server for Hermes, OpenClaw, Cursor and Claude Code. Folder, note and the exact line in 210 tokens."** Then demo: browser `coding competition` Keyword vs Region, `yacht maintenance` NO; Terminal A `did anyone ask me for money?`; Terminal B Cursor arm servo question, then `did I book a yacht charter?` (about 23 tokens, **"No grep loop. It just stops."**) |
+| 3:45 | 9. Impact and what's next | **"17x fewer tokens and more accurate today. Next: your own mail, calendar, docs and chat logs, and agent feedback as training data. Navigation used to mean maps. Now it also means navigating what we and our agents know."** |
 
 If the live demo fails at any step, switch to the README graphics and keep talking; never
 debug in front of judges.

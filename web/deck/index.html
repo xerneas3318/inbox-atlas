@@ -165,21 +165,21 @@ b, strong { font-weight: 700; }
 .rag td.num small { display: block; font-size: 22px; line-height: 1.25; color: var(--muted); margin-top: 6px; }
 
 /* 8 agents */
-.agents { display: grid; grid-template-columns: 1.35fr 1fr; gap: 80px; margin-top: 56px; }
+.agents { display: grid; grid-template-columns: 1.35fr 1fr; gap: 80px; margin-top: 40px; }
 .harness { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
-.harness span { font-size: 30px; font-weight: 600; padding: 10px 24px; border-radius: 12px; background: var(--accent-soft); color: var(--ink); }
+.harness span { font-size: 26px; font-weight: 600; padding: 8px 18px; border-radius: 12px; background: var(--accent-soft); color: var(--ink); }
 .ask { font-family: var(--serif); font-size: 38px; line-height: 1.25; margin: 0 0 24px; }
 .tree { font-size: 31px; line-height: 1.25; }
-.tree .lvl { display: flex; align-items: center; gap: 16px; padding: 10px 0; }
+.tree .lvl { display: flex; align-items: center; gap: 16px; padding: 7px 0; }
 .tree .lvl svg { width: 34px; height: 34px; flex: none; }
 .tree .l1 { padding-left: 0; } .tree .l2 { padding-left: 48px; } .tree .l3 { padding-left: 96px; } .tree .l4 { padding-left: 144px; }
 .tree .dim { color: var(--muted); }
 .tree .hit { font-weight: 700; color: var(--accent); }
 .tree .line { margin: 10px 0 0 144px; padding: 16px 24px; background: var(--accent-soft); border-left: 6px solid var(--accent); font-family: var(--serif); font-size: 32px; }
-.costs { display: flex; flex-direction: column; gap: 46px; }
+.costs { display: flex; flex-direction: column; gap: 28px; }
 .cost { border-top: 6px solid var(--accent); padding-top: 22px; }
 .cost.none { border-top-color: var(--ink); }
-.cost .t { font: 700 150px/0.9 var(--display); color: var(--accent); }
+.cost .t { font: 700 110px/0.9 var(--display); color: var(--accent); }
 .cost.none .t { color: var(--ink); }
 .cost .t small { font-size: 48px; margin-left: 10px; }
 .cost p { font-size: 30px; line-height: 1.35; margin: 12px 0 0; color: var(--ink-2); }
@@ -220,6 +220,143 @@ b, strong { font-weight: 700; }
 .close-slide .links { position: absolute; left: 128px; bottom: 130px; font-size: 34px; line-height: 1.6; color: var(--on-night-2); }
 .close-slide .links b { color: var(--on-night); font-weight: 600; }
 .close-slide .foot { bottom: 52px; }
+
+
+/* problem: the expensive loop */
+.bg2 { display: grid; grid-template-columns: 860px 1fr; gap: 70px; margin-top: 40px; align-items: start; }
+.loop { position: relative; width: 860px; height: 600px; }
+.loop .ring { position: absolute; inset: 0; width: 860px; height: 600px; }
+.node { position: absolute; width: 270px; transform: translate(-50%, -50%); text-align: center; background: var(--paper); border: 3px solid var(--ink); border-radius: 16px; padding: 16px 18px; font-size: 29px; line-height: 1.25; font-weight: 500; }
+.node q { font-family: var(--serif); quotes: "\201C" "\201D"; }
+.node b { color: var(--accent); font: 700 46px/1 var(--display); }
+.n-top { left: 430px; top: 85px; } .n-right { left: 730px; top: 300px; width: 220px; } .n-bottom { left: 430px; top: 515px; } .n-left { left: 130px; top: 300px; width: 240px; }
+.loop-mid { position: absolute; left: 430px; top: 300px; transform: translate(-50%, -50%); width: 300px; text-align: center; }
+.loop-mid b { display: block; font: 700 46px/1.02 var(--display); color: var(--accent); }
+.loop-mid span { display: block; font-size: 23px; color: var(--muted); margin-top: 10px; line-height: 1.3; }
+.mismatch { padding-top: 10px; }
+.mm-lead { font-family: var(--serif); font-size: 42px; line-height: 1.2; margin: 0 0 26px; }
+.mm-row { position: relative; border-left: 8px solid var(--line); padding: 10px 0 10px 22px; margin-bottom: 14px; }
+.mm-k { display: block; font-size: 22px; color: var(--muted); }
+.mm-v { display: block; font-size: 30px; line-height: 1.25; }
+.mm-v.q { font-family: var(--serif); font-size: 36px; }
+.mm-row.miss { border-left-style: dashed; } .mm-row.miss .mm-v { color: var(--muted); }
+.mm-row.wrong { border-left-color: var(--accent); background: var(--accent-soft); }
+.mm-tag { position: absolute; right: 16px; top: 10px; font-size: 22px; font-weight: 700; color: var(--accent); }
+.mm-row.miss .mm-tag { color: var(--muted); }
+.mm-stat { display: flex; align-items: baseline; gap: 24px; margin-top: 34px; border-top: 3px solid var(--ink); padding-top: 20px; }
+.mm-stat b { font: 700 110px/0.9 var(--display); color: var(--accent); white-space: nowrap; }
+.mm-stat span { font-size: 28px; line-height: 1.3; color: var(--ink-2); }
+
+/* so we built */
+.built { padding-top: 250px; }
+.built .dotmap { position: absolute; inset: 0; }
+.built h2 { font-size: 150px; max-width: 1300px; }
+.built-line { font-family: var(--serif); font-size: 54px; line-height: 1.25; color: var(--on-night); max-width: 1180px; margin: 50px 0 0; }
+.built-line q { color: var(--red-night); quotes: "\201C" "\201D"; }
+.built-who { font-size: 34px; color: var(--on-night-2); margin: 36px 0 0; max-width: 1100px; }
+
+/* pipeline */
+.pipe { display: grid; grid-template-columns: 150px 1fr; column-gap: 24px; margin-top: 56px; }
+.lane-label { font: 700 40px/1 var(--display); color: var(--accent); padding-top: 34px; }
+.lane { display: grid; grid-template-columns: 1fr 50px 1fr 50px 1fr 50px 1.15fr; align-items: stretch; }
+.lane .arr { position: relative; }
+.lane .arr::before { content: ""; position: absolute; left: 6px; right: 14px; top: 50%; height: 4px; background: var(--accent); }
+.lane .arr::after { content: ""; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); border: 12px solid transparent; border-left: 16px solid var(--accent); border-right: 0; }
+.pbox { border: 3px solid var(--line); background: var(--paper); border-radius: 14px; padding: 18px 20px; min-height: 190px; }
+.pbox b { display: block; font: 700 38px/1.05 var(--display); margin-bottom: 6px; }
+.pbox span { display: block; font-size: 24px; line-height: 1.3; color: var(--ink-2); margin-bottom: 8px; }
+.pbox.key { border-color: var(--accent); background: var(--accent-soft); }
+.pbox.store { border-color: var(--ink); }
+.pbox.out { border-color: var(--accent); border-width: 4px; }
+.pbox .stop { font-weight: 700; color: var(--ink); }
+.pbox .fx { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.pbox .fx em { font-style: normal; font-size: 21px; border: 2px solid var(--accent); color: var(--accent); border-radius: 999px; padding: 3px 12px; font-weight: 600; }
+.pbox .fx em.neg { border-style: dashed; border-color: var(--muted); color: var(--muted); font-weight: 500; }
+.lane-gap { grid-column: 2; position: relative; height: 110px; }
+.lane-gap svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lane-gap span { position: absolute; right: 610px; top: 4px; font-size: 24px; color: var(--muted); white-space: nowrap; }
+
+/* result */
+.result { display: grid; grid-template-columns: 1.55fr 1fr; gap: 80px; margin-top: 60px; align-items: start; }
+.duel-row { display: grid; grid-template-columns: 300px 1fr; gap: 30px; padding: 26px 0; border-top: 2px solid var(--line); align-items: center; }
+.duel-row:last-of-type { border-bottom: 2px solid var(--line); }
+.duel-k { font-size: 34px; font-weight: 600; line-height: 1.15; }
+.duel-k small { display: block; font-size: 24px; color: var(--muted); font-weight: 500; margin-top: 4px; }
+.db { display: flex; align-items: center; height: 54px; }
+.db .who { flex: none; width: 120px; font-size: 24px; color: var(--muted); font-weight: 500; }
+.db.us .who { color: var(--accent); font-weight: 700; }
+.db i { display: block; flex: none; height: 38px; background: #a8b0b8; width: calc((100% - 270px) * var(--w)); min-width: 4px; }
+.db.us i { background: var(--accent); }
+.db em { font-style: normal; font: 700 40px/1 var(--display); padding-left: 16px; }
+.db.us em { color: var(--accent); }
+.src { font-size: 22px; color: var(--muted); margin: 18px 0 0; }
+.why { border-top: 6px solid var(--accent); padding-top: 26px; }
+.why h3 { font: 700 54px/1.05 var(--display); margin: 0 0 20px; }
+.why p { font-family: var(--serif); font-size: 40px; line-height: 1.3; margin: 0 0 34px; }
+.why-ex { display: flex; flex-direction: column; gap: 8px; font-size: 26px; color: var(--muted); }
+.why-ex q { font-family: var(--serif); font-size: 36px; color: var(--ink); quotes: "\201C" "\201D"; }
+.why-ex q:last-child { color: var(--accent); }
+
+/* model caption */
+.model .cap { font-size: 26px; line-height: 1.4; color: var(--ink-2); margin: 22px 0 0; }
+
+/* stats table */
+.stats { width: 100%; border-collapse: collapse; margin-top: 40px; }
+.stats th { font: 700 34px/1 var(--display); color: var(--muted); padding: 0 0 16px; text-align: right; }
+.stats th.us { color: var(--accent); }
+.stats td { border-top: 2px solid var(--line); padding: 14px 0; font-size: 33px; font-weight: 600; vertical-align: middle; }
+.stats tr:last-child td { border-bottom: 2px solid var(--line); }
+.stats td small { display: block; font-size: 22px; color: var(--muted); font-weight: 500; margin-top: 2px; }
+.stats td.num { text-align: right; font: 700 50px/1 var(--display); width: 260px; }
+.stats td.them { color: var(--muted); }
+.stats td.us { color: var(--accent); }
+.stats td.gain { font-size: 40px; color: var(--ink); width: 330px; }
+.tfoot { font-family: var(--serif); font-size: 40px; margin: 34px 0 0; }
+
+/* second brain */
+.harness .sep { background: none; color: var(--muted); font-weight: 500; padding-left: 8px; padding-right: 0; }
+.democue { position: absolute; left: 128px; right: 128px; bottom: 92px; display: flex; align-items: center; gap: 40px; background: var(--night); color: var(--on-night); border-radius: 14px; padding: 20px 32px; font-size: 30px; }
+.democue b { font: 700 40px/1 var(--display); color: var(--red-night); }
+.democue span + span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--on-night-2); margin-right: 40px; vertical-align: middle; }
+
+
+/* solution with real screenshots */
+.sol-line { font-family: var(--serif); font-size: 38px; line-height: 1.25; margin: 18px 0 0; max-width: 1664px; }
+.sol { display: grid; grid-template-columns: 860px 1fr; gap: 56px; margin-top: 30px; align-items: start; }
+.shotfig { margin: 0; }
+.shotfig figcaption { font-size: 23px; line-height: 1.35; color: var(--ink-2); margin-top: 12px; }
+.sol .shot { width: 860px; }
+.crop { width: 100%; aspect-ratio: 900 / 470; overflow: hidden; border-radius: 12px; box-shadow: 0 2px 0 var(--line), 0 24px 50px -28px rgba(31,35,40,.55); }
+.crop img { width: 160%; max-width: none; display: block; }
+.sol-side .imsg { margin-top: 20px; gap: 8px; }
+.sol-side .bub { font-size: 23px; padding: 10px 18px; }
+
+/* how we built it */
+.hw { display: grid; grid-template-columns: 860px 1fr; gap: 56px; margin-top: 44px; align-items: start; }
+.hw .arch { width: 100%; display: block; background: #fff; border: 2px solid var(--line); border-radius: 12px; padding: 12px; }
+.minifacts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 24px; margin-top: 18px; }
+.minifacts b { display: block; font: 700 40px/1 var(--display); color: var(--accent); }
+.minifacts span { display: block; font-size: 20px; line-height: 1.25; white-space: nowrap; color: var(--ink-2); margin-top: 4px; }
+.stack2 .row { padding: 14px 0; border-top: 2px solid var(--line); }
+.stack2 .row:last-child { border-bottom: 2px solid var(--line); }
+.stack2 h3 { font: 700 40px/1 var(--display); margin: 0 0 6px; color: var(--blue); }
+.stack2 p { font-size: 24px; line-height: 1.35; margin: 0; color: var(--ink-2); }
+.stack2 .row.cursor p { font-family: var(--serif); color: var(--ink); font-size: 26px; }
+
+/* impact */
+.impact h2 { font-size: 110px; }
+.imp { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; margin-top: 50px; }
+.imp h3 { font: 700 44px/1 var(--display); color: var(--red-night); margin: 0 0 18px; }
+.imp ul { list-style: none; margin: 0; padding: 0; }
+.impnums li { display: grid; grid-template-columns: 290px 1fr; gap: 24px; align-items: baseline; padding: 12px 0; border-top: 2px solid var(--night-2); }
+.impnums b { font: 700 58px/1 var(--display); color: var(--on-night); white-space: nowrap; }
+.impnums span, .next li { font-size: 29px; line-height: 1.3; color: var(--on-night-2); }
+.next li { padding: 16px 0; border-top: 2px solid var(--night-2); color: var(--on-night); }
+.imp-close { position: absolute; left: 128px; right: 128px; bottom: 104px; display: flex; justify-content: space-between; align-items: flex-end; gap: 60px; }
+.imp-close .quote { font-family: var(--serif); font-size: 38px; line-height: 1.25; margin: 0; max-width: 960px; color: var(--on-night); }
+.imp-close .quote span { color: var(--red-night); }
+.imp-close .links { font-size: 25px; line-height: 1.5; margin: 0; color: var(--on-night-2); text-align: right; white-space: nowrap; }
+.imp-close .links b { color: var(--on-night); }
 
 /* chrome: progress, notes */
 .progress { position: fixed; left: 0; top: 0; height: 5px; background: var(--red-night); width: 0; transition: width .3s ease; z-index: 5; }
@@ -279,160 +416,205 @@ body.presenter { background: #14171b; color: #eef0f2; overflow: hidden; }
   <div class="foot"><span class="mark"></span><span class="num"></span></div>
   <aside class="notes">
     <p><b>"Your agents read 4,000 tokens to find one email. We hand them the 250 that matter."</b></p>
-    <p>Numbers behind it: 249 tokens per question vs 4,445 for grep style retrieval.</p>
+    <p>Numbers behind it: on the 12 email questions, 225 tokens per question vs 3,724 for keyword search.</p>
   </aside>
 </section>
 
 <!-- 2 -->
 <section class="slide">
-  <h2><span class="rule"></span>Search matches words, not meaning.</h2>
-  <div class="problem">
-    <div>
-      <div class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg>coding competition</div>
-      <div class="col-label">Keyword search returns</div>
-      <div class="mail wrong"><span class="tag">a job test</span><small>HackerRank for Stripe</small>Online assessment for Software Engineering Intern</div>
-      <div class="col-label">and misses</div>
-      <div class="mail missed"><small>Codeforces</small>Codeforces Round 1043 (Div. 2) starts in 24 hours</div>
-      <div class="mail missed"><small>Cornell ACM</small>ICPC regional team tryouts this Saturday</div>
-      <div class="mail missed"><small>Devpost</small>Your DevPost submission was received</div>
+  <h2><span class="rule"></span>Agents search your mail by matching words.</h2>
+  <div class="bg2">
+    <div class="loop" id="loop">
+      <div class="node n-top">search <q>coding competition</q></div>
+      <div class="node n-right"><b>0 hits</b></div>
+      <div class="node n-bottom">rewrite: <q>programming contest</q></div>
+      <div class="node n-left">open email after email</div>
+      <div class="loop-mid"><b>every round costs tokens</b><span>and when nothing is there, it keeps looking</span></div>
     </div>
-    <div class="agentloop">
-      <div class="col-label" style="margin-top:0">Your agent does the same, only more expensively</div>
-      <ol>
-        <li><code>grep "competition"</code><span>nothing</span></li>
-        <li><code>grep "contest"</code><span>opens 6 files</span></li>
-        <li><code>grep "hackathon"</code><span>opens 9 more</span></li>
-        <li><code>cat inbox/*.eml</code><span>pastes them all</span></li>
-      </ol>
-      <div class="end">And when the answer isn't there, it keeps looking.</div>
+    <div class="mismatch">
+      <p class="mm-lead">The words the model writes are often not in the email.</p>
+      <div class="mm-row"><span class="mm-k">the agent searches</span><span class="mm-v q">coding competition</span></div>
+      <div class="mm-row miss"><span class="mm-k">the email says</span><span class="mm-v">Codeforces Round 1043 (Div. 2) starts in 24 hours</span><span class="mm-tag">missed</span></div>
+      <div class="mm-row wrong"><span class="mm-k">keyword search returns</span><span class="mm-v">Online assessment for Software Engineering Intern</span><span class="mm-tag">a job test</span></div>
+      <div class="mm-stat"><b>7 of 12</b><span>meaning-based questions where keyword search found nothing at all</span></div>
     </div>
   </div>
   <div class="foot"><span class="mark"></span><span class="num"></span></div>
   <aside class="notes">
-    <p><b>"This is how Gmail and most agents search today: by words."</b></p>
-    <p>"coding competition" returns the HackerRank job assessment because it says "coding", and misses the Codeforces round, the ICPC tryout and the DevPost receipt.</p>
-    <p>Claude Code, Cursor, Hermes, OpenClaw, every second brain setup searches the same way: grep, open file after file, and keep looking when nothing is there.</p>
+    <p><b>"LLM agents searching your Gmail make too many queries, because they search by matching words."</b></p>
+    <p>The loop: search, zero hits, rewrite the query, search again, open email after email. Every round costs tokens, and when the answer isn't there it keeps looking.</p>
+    <p><b>"The words the model generates are often not in the email."</b> It searches "coding competition"; the email says "Codeforces Round 1043". So it misses, or it returns the HackerRank job test because it says "coding".</p>
+    <p><b>"Keyword search found nothing for 7 of our 12 meaning-based questions. Not wrong answers. Nothing."</b></p>
   </aside>
 </section>
 
 <!-- 3 -->
 <section class="slide">
-  <div class="bignum">
-    <div class="n">7</div>
-    <div class="say">
-      <div class="of">of our 12 questions</div>
-      <p>Keyword search found nothing. Not wrong answers. Nothing.</p>
-      <p class="quiet">Inbox Atlas found the right emails for all 12: Recall@10 <b>0.867</b> vs <b>0.175</b>, about five times the recall.</p>
+  <h2><span class="rule"></span>So we built Inbox Atlas.</h2>
+  <p class="sol-line">A retrieval layer that searches by meaning and returns a decision, for agents and people.</p>
+  <div class="sol">
+    <figure class="shotfig">
+      <img class="shot" src="img/region_coding_competition.png" alt="Live app: coding competition becomes Grok facets with exclusions, RELATED: YES, ranked contest emails and a glowing region on the map">
+      <figcaption>Search by meaning: Grok's facets and exclusions, <b>RELATED: YES</b>, the region glowing on the map.</figcaption>
+    </figure>
+    <div class="sol-side">
+      <figure class="shotfig">
+        <div class="crop"><img src="img/related_no_yacht.png" alt="Live app: yacht maintenance, RELATED: NO, 28 tokens, agent stops here, nothing in your inbox about this"></div>
+        <figcaption>Not there: <b>RELATED: NO</b>, 28 tokens, the agent stops.</figcaption>
+      </figure>
+      <div class="imsg">
+        <span class="bub me">did anyone ask me for money?</span>
+        <span class="bub it">Yes. Venmo Wed Sep 30: Alex requested $42.50 for pizza + uber friday.</span>
+        <span class="bub me">watch internships</span>
+      </div>
     </div>
-  </div>
-  <div class="chips">
-    <span class="chip">travel plans</span><span class="chip">upcoming exams</span><span class="chip">internship hunting</span><span class="chip">stuff I bought online</span><span class="chip">workout schedule</span><span class="chip">catching up with my parents</span><span class="chip">winter break trip</span>
   </div>
   <div class="foot"><span class="mark"></span><span class="num"></span></div>
   <aside class="notes">
-    <p><b>"Keyword search found nothing for 7 of our 12 questions. Not wrong answers. Nothing."</b></p>
-    <p>12 meaning based questions whose words do not appear in the target emails. Atlas: 0 of 12 empty. Recall@10 0.867 vs 0.175, five times the recall.</p>
-    <p>The seven on screen are the ones keyword search could not answer.</p>
+    <p><b>"So we built Inbox Atlas: a retrieval layer that searches by meaning and returns a decision, for agents and for people."</b></p>
+    <p>Real screenshots from the running app. "coding competition": Grok wrote the facets, including what to exclude, so the job test is gone; RELATED: YES and the region glows on the map. "yacht maintenance": RELATED: NO, 28 tokens, the agent stops.</p>
+    <p>iMessage on Photon, real transcript: "did anyone ask me for money?" and "watch internships", which texts you first when new mail lands.</p>
   </aside>
 </section>
 
 <!-- 4 -->
 <section class="slide blue">
-  <h2><span class="rule"></span>A question becomes a region.</h2>
-  <div class="flow">
-    <div class="step">
-      <h3>You ask</h3>
-      <p class="sub">typed, spoken, texted, or called by an agent</p>
-      <div class="q">coding competition</div>
+  <h2><span class="rule"></span>The whole pipeline, end to end.</h2>
+  <div class="pipe">
+    <div class="lane-label">Ingest</div>
+    <div class="lane">
+      <div class="pbox"><b>Gmail</b><span>read-only IMAP</span><b>Obsidian notes</b><span>split by heading</span></div>
+      <i class="arr"></i>
+      <div class="pbox"><b>Clean</b><span>HTML to text, quotes and signatures stripped</span></div>
+      <i class="arr"></i>
+      <div class="pbox key"><b>atlas-embed</b><span>our trained encoder, runs locally</span></div>
+      <i class="arr"></i>
+      <div class="pbox store"><b>Tiger Cloud</b><span>Postgres + pgvector HNSW</span></div>
     </div>
-    <div class="step">
-      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#4c72b0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
-      <h3>Grok writes facets</h3>
-      <p class="sub">in the words emails actually use, plus what to exclude</p>
-      <div class="chips">
-        <span class="chip pos">Codeforces round</span><span class="chip pos">ICPC regional</span><span class="chip pos">LeetCode contest</span><span class="chip pos">Devpost submission</span><span class="chip pos">hackathon</span>
-        <span class="chip neg">not: job coding interview</span><span class="chip neg">not: take-home coding test</span>
-      </div>
-    </div>
-    <div class="step region">
-      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#4c72b0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
-      <h3>Region on the map</h3>
-      <p class="sub">our encoder scores every email and note against it</p>
-      <svg id="regionsvg" viewBox="0 0 360 250"></svg>
-      <div class="verdict">RELATED: YES</div>
-    </div>
-    <div class="step">
-      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#4c72b0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
-      <h3>A decision</h3>
-      <p class="sub">only the sentences that answer, under a token budget</p>
-      <div class="answer">Codeforces Round 1043 starts in 24 hours. ICPC tryouts this Saturday.<b class="tok">249 tokens</b></div>
-      <div class="answer none">or "nothing here", so the agent stops<b class="tok">31 tokens</b></div>
+    <div class="lane-gap"><svg viewBox="0 0 1490 110" preserveAspectRatio="none"><path d="M1304 0 V46 H907 V92" fill="none" stroke="#1f2328" stroke-width="4"/><path d="M895 88 L919 88 L907 108 z" fill="#1f2328"/></svg><span>Region score reads every email and note from Tiger Cloud</span></div>
+    <div class="lane-label">Query</div>
+    <div class="lane">
+      <div class="pbox"><b>A question</b><span>agent over MCP, iMessage, voice or web</span></div>
+      <i class="arr"></i>
+      <div class="pbox"><b>Grok facets</b><span class="fx"><em>Codeforces round</em> <em>ICPC regional</em> <em class="neg">not: job coding interview</em></span></div>
+      <i class="arr"></i>
+      <div class="pbox key"><b>Region score</b><span>hub-corrected yes or no: is it here at all?</span></div>
+      <i class="arr"></i>
+      <div class="pbox out"><b>Answer pack</b><span>only the answering sentences, under a token budget</span><span class="stop">or <q>nothing here, stop</q></span></div>
     </div>
   </div>
   <div class="foot"><span class="mark"></span><span class="num"></span></div>
   <aside class="notes">
-    <p><b>"Same question, searched by meaning."</b> <b>"Grok wrote these, including what to exclude. That's why the job test is gone."</b></p>
-    <p><b>"Your inbox as a map. The question becomes a region."</b> Our own encoder scores every email and note against the region; a calibrated yes or no answers "is it here at all?"</p>
-    <p>Then we hand back only the sentences that answer: 249 tokens on average, or 31 tokens for "nothing here".</p>
+    <p><b>"Here is the whole thing end to end."</b></p>
+    <p>Ingest: Gmail read-only and Obsidian notes, cleaned, embedded locally by atlas-embed, our own encoder, and stored in Tiger Cloud with a pgvector index.</p>
+    <p>Query: a question comes from an agent over MCP, iMessage, voice or the web. <b>"Grok writes the facets in the words emails actually use, plus what to exclude."</b> We score every email against that region; a hub-corrected score answers "is it here at all?". Then we hand back only the sentences that answer, under a token budget, or "nothing here, stop".</p>
   </aside>
 </section>
 
 <!-- 5 -->
-<section class="slide night demo">
-  <h2>Live demo</h2>
-  <div class="plan">
-    <div><span class="k">Browser</span><h3>Search by meaning</h3><p>Keyword vs region on <q>coding competition</q>, the facet chips, then <q>yacht maintenance</q>: NO.</p></div>
-    <div><span class="k">iMessage</span><h3>Just text it</h3><p><q>what do I have tomorrow?</q> then <q>did anyone ask me for money?</q></p></div>
-    <div><span class="k">Cursor</span><h3>One MCP tool</h3><p><q>what pulse widths did I use for the arm servos?</q> then <q>did I book a yacht charter?</q></p></div>
+<section class="slide">
+  <h2 class="tight"><span class="rule"></span>17x fewer tokens on email questions, and more accurate.</h2>
+  <div class="result">
+    <div class="duel">
+      <div class="duel-row">
+        <div class="duel-k">Tokens per question</div>
+        <div class="duel-bars">
+          <div class="db"><span class="who">keyword</span><i style="--w:1"></i><em>3,724</em></div>
+          <div class="db us"><span class="who">Atlas</span><i style="--w:.0604"></i><em>225</em></div>
+        </div>
+      </div>
+      <div class="duel-row">
+        <div class="duel-k">Answer accuracy</div>
+        <div class="duel-bars">
+          <div class="db"><span class="who">keyword</span><i style="--w:.33"></i><em>33%</em></div>
+          <div class="db us"><span class="who">Atlas</span><i style="--w:.58"></i><em>58%</em></div>
+        </div>
+      </div>
+      <div class="duel-row">
+        <div class="duel-k">Finding the right emails<small>Recall@10</small></div>
+        <div class="duel-bars">
+          <div class="db"><span class="who">keyword</span><i style="--w:.175"></i><em>0.175</em></div>
+          <div class="db us"><span class="who">Atlas</span><i style="--w:.867"></i><em>0.867</em></div>
+        </div>
+      </div>
+      <p class="src">12 demo inbox questions, answered and graded by Grok from only the context each method hands over.</p>
+    </div>
+    <div class="why">
+      <h3>Why it is more accurate</h3>
+      <p>The words a model would search for are often not in the email. Word matching misses them. Meaning does not.</p>
+      <div class="why-ex"><q>coding competition</q><span>finds</span><q>Codeforces Round 1043</q></div>
+    </div>
   </div>
   <div class="foot"><span class="mark"></span><span class="num"></span></div>
   <aside class="notes">
-    <p>Browser, Keyword mode: <b>"This is how Gmail and most agents search today: by words."</b> Region mode: <b>"Same question, searched by meaning."</b></p>
-    <p>RELATED: YES, then yacht maintenance: <b>"And it knows when nothing is there."</b> NO. <b>"That one answer is where most of the token savings come from."</b> Map: <b>"Your inbox as a map. The question becomes a region."</b></p>
-    <p>Terminal A: <b>"For people, it's just a text."</b> Monday 10am lab meeting. Then "did anyone ask me for money?"</p>
-    <p>Terminal B, Cursor: <b>"For agents, it's one MCP tool."</b> About 210 tokens. <b>"It found the folder first, then the note, in a nested markdown vault."</b> Yacht charter: about 23 tokens. <b>"No grep loop. It just stops."</b></p>
-    <p>If anything fails, skip to the next slide and keep talking. Never debug in front of judges.</p>
+    <p><b>"17 times fewer tokens on email questions, and more accurate."</b></p>
+    <p>On the 12 demo inbox questions: keyword search hands the agent 3,724 tokens per question and gets 33% right. Atlas hands over 225 tokens and gets 58% right. Finding the right emails: Recall@10 0.175 vs 0.867.</p>
+    <p><b>"Why more accurate? The related words the model would search for often aren't in the email, so word matching misses them, and meaning doesn't."</b></p>
   </aside>
 </section>
 
 <!-- 6 -->
 <section class="slide">
-  <h2><span class="rule"></span>18x fewer tokens than grep.</h2>
-  <div class="bars" id="bars"></div>
+  <h2><span class="rule"></span>How we built it.</h2>
+  <div class="hw">
+    <div>
+      <img class="arch" src="img/architecture.png" alt="atlas-embed: frozen bge-base backbone with LoRA adapters, Matryoshka heads and a frozen cross-encoder teacher; atlas-region Set Transformer">
+      <div class="minifacts">
+        <div><b>1.18M</b><span>LoRA params, frozen bge-base</span></div>
+        <div><b>224,867</b><span>Enron emails</span></div>
+        <div><b>19,980</b><span>Grok labels</span></div>
+        <div><b>491k</b><span>frozen teacher scores</span></div>
+        <div><b>1 GPU</b><span>RTX 4070 SUPER, overnight</span></div>
+        <div><b>0.692 vs 0.635</b><span>nDCG@10, vague queries</span></div>
+      </div>
+    </div>
+    <div class="stack2">
+      <div class="row"><h3>Grok</h3><p>Facets and exclusions, the tool-calling agent, speech to text, realtime voice.</p></div>
+      <div class="row"><h3>Tiger Cloud</h3><p>Postgres with pgvector HNSW, a TimescaleDB query log, chat history.</p></div>
+      <div class="row"><h3>Photon</h3><p>The two-way iMessage agent on Spectrum.</p></div>
+      <div class="row"><h3>MCP</h3><p>One server for Cursor, Claude Code, Hermes and OpenClaw.</p></div>
+      <div class="row cursor"><h3>Cursor CLI</h3><p>Built and routed with it. In our own testing outside this repo, Cursor CLI was the most token-efficient at routing compared with Claude Code, Codex and Grok.</p></div>
+    </div>
+  </div>
   <div class="foot"><span class="mark"></span><span class="num"></span></div>
   <aside class="notes">
-    <p><b>"Seven of twelve questions: keyword found nothing. We found all twelve. 18x fewer tokens than grep, 60x fewer when the topic isn't there."</b></p>
-    <p>249 vs 4,445 tokens per question. A third of chunk RAG at the same 75% accuracy (249 vs 740). 31 tokens on absent topics vs 1,858 grep, abstains on 13 of 14. Real 419 note vault: right note 12 of 12 at 625 tokens vs 10,907.</p>
+    <p><b>"Under it: our own encoder, frozen backbone, LoRA, a frozen teacher, trained overnight on a quarter million emails on one GPU."</b></p>
+    <p>atlas-embed: frozen bge-base with 1.18 million trainable LoRA parameters, Matryoshka heads (768, 256, 64), listwise distillation from a frozen cross-encoder teacher. 224,867 Enron emails, 19,980 Grok labels, 491 thousand teacher scores, one RTX 4070 SUPER overnight. Vague queries nDCG@10 0.692 vs 0.635. The region's yes or no is hub corrected: each email is compared with what it scores on random topic sets of the same size.</p>
+    <p>Stack: Grok for facets, the agent, speech to text and realtime voice. Tiger Cloud: pgvector HNSW, TimescaleDB query log, chat history. Photon Spectrum for iMessage. MCP for every agent.</p>
+    <p>Say it exactly: "In our own testing outside this repo, Cursor CLI was the most token-efficient at routing compared with Claude Code, Codex and Grok." No numbers.</p>
   </aside>
 </section>
 
 <!-- 7 -->
 <section class="slide">
-  <h2 class="tight"><span class="rule"></span>RAG always returns k chunks. We return a decision.</h2>
-  <table class="rag">
-    <thead><tr><th>What changes</th><th>Standard RAG</th><th class="us">Inbox Atlas</th><th>Measured</th></tr></thead>
+  <h2><span class="rule"></span>Keyword search vs Inbox Atlas.</h2>
+  <table class="stats">
+    <thead><tr><th></th><th class="num">keyword</th><th class="num us">Atlas</th><th class="num">gain</th></tr></thead>
     <tbody>
-      <tr><td>Knows when nothing is there</td><td class="them">Always returns k chunks, even for topics that do not exist</td><td>Calibrated yes or no; abstains and says stop searching</td><td class="num"><b>31 vs 742</b><small>tokens on absent topics</small></td></tr>
-      <tr><td>A question is a region</td><td class="them">One query vector; the job test ranks first</td><td>Grok facets plus exclusions push the job test out</td><td class="num"><b>7 vs 6</b><small>of top 8 on topic</small></td></tr>
-      <tr><td>Sentences under a budget</td><td class="them">Pastes 8 whole chunks</td><td>Keeps only the sentences that answer</td><td class="num"><b>249 vs 740</b><small>tokens at the same 75% accuracy</small></td></tr>
-      <tr><td>Folders first, then notes</td><td class="them">Flat list of chunks across the vault</td><td>Finds the folder, then the note, then the line</td><td class="num"><b>210</b><small>tokens to the exact line</small></td></tr>
-      <tr><td>Encoder trained for mail</td><td class="them">Off the shelf embeddings</td><td>Frozen bge + LoRA, distilled from a frozen teacher</td><td class="num"><b>0.692 vs 0.635</b><small>nDCG@10, vague queries</small></td></tr>
+      <tr><td>Questions with zero relevant hits<small>12 meaning-based questions</small></td><td class="num them">7 of 12</td><td class="num us">0 of 12</td><td class="num gain">7 to 0</td></tr>
+      <tr><td>Recall@10<small>finding the right emails</small></td><td class="num them">0.175</td><td class="num us">0.867</td><td class="num gain">about 5x</td></tr>
+      <tr><td>Tokens per email question</td><td class="num them">3,724</td><td class="num us">225</td><td class="num gain">17x fewer</td></tr>
+      <tr><td>Answer accuracy</td><td class="num them">33%</td><td class="num us">58%</td><td class="num gain">more accurate</td></tr>
+      <tr><td>Tokens when the topic is absent</td><td class="num them">1,858</td><td class="num us">31</td><td class="num gain">60x fewer</td></tr>
+      <tr><td>Real 419 note vault<small>tokens handed to the agent</small></td><td class="num them">10,907</td><td class="num us">625</td><td class="num gain">17x fewer</td></tr>
     </tbody>
   </table>
+  <p class="tfoot">RAG always returns k chunks. We return a decision.</p>
   <div class="foot"><span class="mark"></span><span class="num"></span></div>
   <aside class="notes">
-    <p><b>"And it's more than RAG: RAG always returns k chunks. We return a decision, sentences instead of chunks, and folders before notes."</b></p>
-    <p>Absent topics 31 tokens vs 742 for chunk RAG. Same 75% accuracy at 249 vs 740 tokens. Folder, note and exact line in 210 tokens. Vague queries nDCG@10 0.692 vs 0.635.</p>
+    <p><b>"Every row is measured on the same data."</b></p>
+    <p>Zero-hit questions 7 of 12 vs 0 of 12. Recall@10 0.175 vs 0.867. 3,724 vs 225 tokens per email question, 17x. Answer accuracy 33% vs 58%. 1,858 vs 31 tokens when the topic isn't there, 60x. On a real 419 note vault, 10,907 vs 625 tokens, 17x.</p>
+    <p><b>"RAG always returns k chunks. We return a decision."</b></p>
   </aside>
 </section>
 
 <!-- 8 -->
 <section class="slide blue">
-  <h2><span class="rule"></span>For agents, it's one MCP tool.</h2>
-  <div class="harness"><span>Cursor</span><span>Claude Code</span><span>Hermes</span><span>OpenClaw</span><span>any second brain</span></div>
+  <h2><span class="rule"></span>A building block for every second brain.</h2>
+  <div class="harness"><span>Obsidian vaults</span><span>agent memory folders</span><span class="sep">one MCP server for</span><span>Hermes</span><span>OpenClaw</span><span>Cursor</span><span>Claude Code</span></div>
   <div class="agents">
     <div>
-      <p class="ask" style="margin-top:44px">"what pulse widths did I use for the arm servos?"</p>
+      <p class="ask">"what pulse widths did I use for the arm servos?"</p>
       <div class="tree">
         <div class="lvl l1 dim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h7l2 2h9v11H3z"/></svg>projects/</div>
         <div class="lvl l2 dim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h7l2 2h9v11H3z"/></svg>robotics/</div>
@@ -442,88 +624,52 @@ body.presenter { background: #14171b; color: #eef0f2; overflow: hidden; }
       </div>
     </div>
     <div class="costs">
-      <div class="cost"><div class="t">210<small>tokens</small></div><p>Folder first, then the note, then the exact line, in a nested markdown vault.</p></div>
-      <div class="cost none"><div class="t">23<small>tokens</small></div><p>"did I book a yacht charter?" Nothing here. No grep loop. It just stops.</p></div>
+      <div class="cost"><div class="t">210<small>tokens</small></div><p>Folder first, then the note, then the exact line.</p></div>
+      <div class="cost none"><div class="t">23<small>tokens</small></div><p>"did I book a yacht charter?" Nothing here. It just stops.</p></div>
     </div>
   </div>
+  <div class="democue"><b>Live demo</b><span>Search by meaning in the browser</span><span>Text it on iMessage</span><span>Ask the agent in Cursor</span></div>
   <div class="foot"><span class="mark"></span><span class="num"></span></div>
   <aside class="notes">
-    <p><b>"For agents, it's one MCP tool."</b> atlas_context for an answer pack, atlas_points_of_interest for folders in a vault. Works in Cursor, Claude Code, Hermes and OpenClaw.</p>
-    <p><b>"It found the folder first, then the note, in a nested markdown vault. That's how it generalizes to any second brain."</b> About 210 tokens.</p>
-    <p>Yacht charter: about 23 tokens. <b>"No grep loop. It just stops."</b></p>
+    <p><b>"The same tool works over any second brain: Obsidian vaults and agent memory folders. It plugs into Hermes, OpenClaw, Cursor and Claude Code as an MCP server."</b></p>
+    <p><b>"It finds the folder first, then the note, then the exact line"</b>: about 210 tokens. Absent topic, about 23 tokens. <b>"No grep loop. It just stops."</b></p>
+    <p>Live demo now. Browser: Keyword vs Region on <b>coding competition</b>, the facet chips, then <b>yacht maintenance</b>: NO. iMessage: <b>what do I have tomorrow?</b> then <b>did anyone ask me for money?</b> Cursor: <b>what pulse widths did I use for the arm servos?</b> then <b>did I book a yacht charter?</b></p>
+    <p>If anything fails, go to the next slide and keep talking. Never debug in front of judges.</p>
   </aside>
 </section>
 
 <!-- 9 -->
-<section class="slide">
-  <h2><span class="rule"></span>For people: search it, say it, text it.</h2>
-  <div class="people">
-    <img class="shot" src="img/ui.png" alt="Inbox Atlas web search: coding competition becomes Grok facets, RELATED: YES, ranked results and a glowing region on the inbox map">
-    <div class="ways">
-      <div class="way"><h3>Search with the map</h3><p>Facets you can edit, a yes or no, and the region glowing on your inbox.</p></div>
-      <div class="way"><h3>Talk or dictate</h3><p>Grok realtime voice, and hold to dictate anywhere with the "um, no wait" cleaned out.</p></div>
-      <div class="way"><h3>Text it on iMessage</h3><p>Two-way on Photon: a morning brief, and alerts when mail lands in a topic you watch.</p>
-        <div class="imsg"><span class="bub me">what do I have tomorrow?</span><span class="bub it">Monday 10am: lab meeting with Priya.</span><span class="bub me">watch internships</span></div>
-      </div>
+<section class="slide night impact">
+  <h2>Impact and what's next.</h2>
+  <div class="imp">
+    <div>
+      <h3>Today</h3>
+      <ul class="impnums">
+        <li><b>17x</b><span>fewer tokens on email questions: 3,724 to 225</span></li>
+        <li><b>33% to 58%</b><span>answer accuracy, at those 17x fewer tokens</span></li>
+        <li><b>31</b><span>tokens when the topic isn't there, so agents stop</span></li>
+        <li><b>625</b><span>tokens instead of 10,907 on a real 419 note vault</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Next</h3>
+      <ul class="next">
+        <li>Fine-tune on each person's own mail</li>
+        <li>Calendar, docs and chat logs behind the same tool</li>
+        <li>Agent feedback turned into training pairs</li>
+        <li>Any second brain or agent memory, one MCP server</li>
+      </ul>
     </div>
   </div>
-  <div class="foot"><span class="mark"></span><span class="num"></span></div>
-  <aside class="notes">
-    <p><b>"For people, it's just a text."</b></p>
-    <p>Search it on the web with the map, talk to it with Grok voice, dictate anywhere Whisperflow style, or text it on iMessage through Photon: "what do I have tomorrow?" It texts you first too, with a morning brief and alerts when mail lands in a topic you're watching.</p>
-  </aside>
-</section>
-
-<!-- 10 -->
-<section class="slide">
-  <h2><span class="rule"></span>Our own encoder, trained overnight.</h2>
-  <div class="model">
-    <img src="img/architecture.png" alt="atlas-embed: frozen bge-base backbone with LoRA adapters, Matryoshka heads and a frozen cross-encoder teacher; atlas-region Set Transformer">
-    <div class="facts">
-      <div class="fact"><b>1.18M</b><span>trainable LoRA parameters on a frozen bge-base backbone</span></div>
-      <div class="fact"><b>Frozen</b><span>cross-encoder teacher, Matryoshka heads at 768, 256, 64</span></div>
-      <div class="fact"><b>224,867</b><span>Enron emails</span></div>
-      <div class="fact"><b>19,980</b><span>Grok labels</span></div>
-      <div class="fact"><b>491k</b><span>teacher scores</span></div>
-      <div class="fact"><b>1 GPU</b><span>RTX 4070 SUPER, overnight</span></div>
-      <div class="fact wide"><b>0.692 vs 0.635</b><span>nDCG@10 on vague queries, unseen emails, vs the frozen base model</span></div>
-    </div>
+  <div class="imp-close">
+    <p class="quote">Navigation used to mean maps. <span>Now it also means navigating what we and our agents know.</span></p>
+    <p class="links"><b>github.com/xerneas3318/inbox-atlas</b><br>Avinash Senthil, Antranig Baghdassarian, Chelsea Lin, Emily Han</p>
   </div>
   <div class="foot"><span class="mark"></span><span class="num"></span></div>
   <aside class="notes">
-    <p><b>"Under it: our own encoder, frozen backbone, LoRA, a frozen teacher, trained overnight on a quarter million emails on one GPU."</b></p>
-    <p>atlas-embed: frozen bge-base with 1.18 million trainable LoRA parameters, Matryoshka heads so it also works at 256 dimensions, listwise distillation from a frozen cross-encoder teacher. 224,867 Enron emails, 19,980 Grok labels, 491 thousand teacher scores, one RTX 4070 SUPER. Vague queries 0.692 vs 0.635.</p>
-  </aside>
-</section>
-
-<!-- 11 -->
-<section class="slide blue">
-  <h2><span class="rule"></span>Built on</h2>
-  <div class="stack">
-    <div class="row"><h3>Grok</h3><p>Facet writing, the tool-calling agent, speech to text and the realtime voice agent.</p></div>
-    <div class="row"><h3>Tiger Cloud</h3><p>Postgres with a pgvector HNSW index, a TimescaleDB hypertable logging every query, and chat history.</p></div>
-    <div class="row"><h3>Photon Spectrum</h3><p>The two-way iMessage agent: answers, morning brief and watch alerts.</p></div>
-    <div class="row"><h3>MCP</h3><p>One server for Cursor, Claude Code, Hermes and OpenClaw, over stdio or HTTP.</p></div>
-    <div class="row cursor"><h3>Cursor CLI</h3><p>Built and routed with it. In our own testing outside this repo, Cursor CLI was the most token-efficient at routing compared with Claude Code, Codex and Grok.</p></div>
-  </div>
-  <div class="foot"><span class="mark"></span><span class="num"></span></div>
-  <aside class="notes">
-    <p>Grok writes the facets in the vocabulary emails actually use, runs the tool-calling agent, does speech to text and dictation cleanup, and powers the realtime voice agent.</p>
-    <p>Tiger Cloud: emails, embeddings with a pgvector HNSW index, chat history, and a TimescaleDB hypertable that logs every query with its latency and tokens.</p>
-    <p>Photon Spectrum for iMessage. MCP for every agent harness.</p>
-    <p>Say it exactly: "In our own testing outside this repo, Cursor CLI was the most token-efficient at routing compared with Claude Code, Codex and Grok." No numbers.</p>
-  </aside>
-</section>
-
-<!-- 12 -->
-<section class="slide night close-slide">
-  <div class="dotmap" data-seed="21" data-region="1540,700,250,190"></div>
-  <blockquote>Navigation used to mean maps.<br><span>Now it also means navigating what we and our agents know.</span></blockquote>
-  <div class="links"><b>github.com/xerneas3318/inbox-atlas</b><br>Avinash Senthil, Antranig Baghdassarian, Chelsea Lin, Emily Han</div>
-  <div class="foot"><span class="mark"></span><span class="num"></span></div>
-  <aside class="notes">
-    <p><b>"Navigation for the next hundred years means navigating what we and our agents know."</b></p>
-    <p>Inbox Atlas is a map of your information that people and LLMs can both use, at a fraction of the tokens. Then take questions; the "isn't this just RAG" answer is in PITCH.md section 6.</p>
+    <p><b>"17 times fewer tokens on email questions, and more accurate: 33 to 58 percent. 31 tokens when nothing is there. On a real 419 note vault, 625 tokens instead of 10,907."</b></p>
+    <p>Next: fine-tune on each user's own mail (that path is built), add calendar, docs and chat logs behind the same tool, turn agent feedback into training pairs, and serve any second brain or agent memory.</p>
+    <p><b>"Navigation used to mean maps. Now it also means navigating what we and our agents know."</b></p>
   </aside>
 </section>
 
@@ -589,23 +735,20 @@ body.presenter { background: #14171b; color: #eef0f2; overflow: hidden; }
     svg.innerHTML = parts.join("");
   })();
 
-  // token savings bars (numbers from README / eval/token_results.md)
+  // the expensive loop on the problem slide: dashed ring with arrowheads
   (function () {
-    var rows = [
-      ["Questions with zero relevant hits", "12 meaning based questions, lower is better", 7, 0, "7", "0", "7 to 0"],
-      ["Recall@10", "same 12 questions, higher is better", 0.175, 0.867, "0.175", "0.867", "about 5x"],
-      ["Context tokens per question", "top 10 docs vs 800 token pack", 4445, 249, "4,445", "249", "18x fewer"],
-      ["Tokens when the topic is absent", "14 absent topics", 1858, 31, "1,858", "31", "60x fewer"],
-      ["Real 419 note vault", "tokens handed to the agent", 10907, 625, "10,907", "625", "17x fewer"]
-    ];
-    var host = document.getElementById("bars"); if (!host) return;
-    host.innerHTML = rows.map(function (r) {
-      var max = Math.max(r[2], r[3]), w = function (v) { return Math.max(0.4, v / max * 100).toFixed(1); };
-      return '<div class="bar-row"><div class="what">' + r[0] + '<small>' + r[1] + '</small></div>' +
-        '<div class="track"><span class="who">keyword</span><span class="b"><i style="width:calc(' + w(r[2]) + '% - 110px)"></i>' + r[4] + '</span>' +
-        '<span class="who us">Atlas</span><span class="b us"><i style="width:calc(' + w(r[3]) + '% - 110px)"></i>' + r[5] + '</span></div>' +
-        '<div class="gain">' + r[6] + '</div></div>';
-    }).join("");
+    var host = document.getElementById("loop"); if (!host) return;
+    var cx = 430, cy = 300, rx = 300, ry = 215, parts = [];
+    parts.push('<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="none" stroke="#b31b1b" stroke-width="4" stroke-dasharray="14 12" opacity=".55"/>');
+    [-45, 45, 135, 225].forEach(function (d) {
+      var t = d * Math.PI / 180, x = cx + rx * Math.cos(t), y = cy + ry * Math.sin(t);
+      var ang = Math.atan2(ry * Math.cos(t), -rx * Math.sin(t)) * 180 / Math.PI;
+      parts.push('<path d="M-16 -14 L14 0 L-16 14 z" fill="#b31b1b" transform="translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ') rotate(' + ang.toFixed(1) + ')"/>');
+    });
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 860 600"); svg.setAttribute("class", "ring");
+    svg.innerHTML = parts.join("");
+    host.insertBefore(svg, host.firstChild);
   })();
 
   var params = new URLSearchParams(location.search);
